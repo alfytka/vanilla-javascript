@@ -1,0 +1,9 @@
+.track-range::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   height: 10px;
+   width: 1px;
+   border-radius: 15px;
+   background: #f8fafc;
+   box-sizing: border-box;
+   box-shadow: -400px 0px 0px 400px #f8fafc;
+}
