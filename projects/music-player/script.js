@@ -4,6 +4,7 @@ const music = document.querySelector('#audio');
 const thumbnails = document.querySelectorAll('.thumbnail');
 
 const trackRange = document.querySelector('.track-range');
+const trackVolume = document.querySelector('.track-volume');
 const songName = document.querySelector('.music-name');
 const artistName = document.querySelector('.artist-name');
 const currentTimes = document.querySelector('.current-time');
@@ -75,4 +76,8 @@ prevBtn.addEventListener('click', () => {
    currentMusic <= 0 ? currentMusic = songs.length - 1 : currentMusic--;
    setMusic(currentMusic);
    playMusic();
+});
+
+trackVolume.addEventListener('change', () => {
+   music.volume = trackVolume.value / 100;
 });
