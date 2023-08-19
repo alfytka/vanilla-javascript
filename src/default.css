@@ -1,4 +1,4 @@
-.track-range::-webkit-slider-thumb {
+.track-range::-webkit-slider-thumb, .track-volume::-webkit-slider-thumb {
    -webkit-appearance: none;
    height: 10px;
    width: 1px;
