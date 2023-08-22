@@ -6,11 +6,16 @@
   <title>Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css">
+  <style>
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
 </head>
 <body class="font-figtree bg-gray-900">
   
   <main class="w-min mx-auto mt-20 p-6 rounded-2xl bg-black select-none">
-    <input type="text" data-output class="w-full mb-3 text-6xl text-end font-light text-gray-50 bg-transparent focus:outline-none">
+    <div type="text" data-output class="w-full max-w-[16rem] h-[3.75rem] mb-3 text-6xl text-start font-light text-gray-50 bg-transparent overflow-x-auto scrollbar-hidden"></div>
     <div class="flex items-center mb-3 gap-3">
       <button data-all-clear class="w-[7.75rem] h-14 text-2xl font-semibold tracking-tighter rounded-full text-gray-900 bg-gray-400 hover:bg-gray-300 focus:outline-none focus:bg-gray-300">
         AC
@@ -84,7 +89,6 @@
         <div class="mx-auto w-4 h-[3px] bg-gray-100"></div>
       </button>
     </div>
-
   </main>
 
 <script src="script.js"></script> 
