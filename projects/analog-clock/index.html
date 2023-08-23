@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analog Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="font-figtree flex items-center justify-center min-h-screen bg-white">
+  
+  <main class="flex p-2 rounded-[4rem] bg-gradient-to-b from-black/75 to-black">
+    <div class="relative flex items-center justify-center before:content('') before:absolute before:w-4 before:h-4 before:rounded-full before:bg-gray-900 before:z-10 after:content('') after:absolute after:w-2 after:h-2 after:rounded-full after:bg-red-600 after:z-20 text-center font-bold w-[18.75rem] h-[18.75rem] rounded-full border-2 bg-white border-black">
+      <div id="hour" class="hand absolute flex items-end justify-center">
+        <i class="absolute w-[5px] h-[4.5rem] rounded-lg bg-gray-900"></i>
+      </div>
+      <div id="min" class="hand absolute flex items-end justify-center">
+        <i class="absolute w-1 h-[5.25rem] rounded-lg bg-gray-900"></i>
+      </div>
+      <div id="sec" class="hand absolute flex items-end justify-center">
+        <i class="absolute w-[3px] h-28 -top-5 rounded-lg bg-red-600"></i>
+      </div>
+      <span class="absolute items-center rotate-[30deg] inset-3" style="--i:1;">
+        <b class="inline-block text-xl -rotate-[30deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[60deg] inset-3" style="--i:2;">
+        <b class="inline-block text-xl -rotate-[60deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-90 inset-3" style="--i:3;">
+        <b class="inline-block text-3xl -rotate-90">3</b>
+      </span>
+      <span class="absolute items-center rotate-[120deg] inset-3" style="--i:4;">
+        <b class="inline-block text-xl -rotate-[120deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[150deg] inset-3" style="--i:5;">
+        <b class="inline-block text-xl -rotate-[150deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-180 inset-3" style="--i:6;">
+        <b class="inline-block text-3xl -rotate-180">6</b>
+      </span>
+      <span class="absolute items-center rotate-[210deg] inset-3" style="--i:7;">
+        <b class="inline-block text-xl -rotate-[210deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[240deg] inset-3" style="--i:8;">
+        <b class="inline-block text-xl -rotate-[240deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[270deg] inset-3" style="--i:9;">
+        <b class="inline-block text-3xl -rotate-[270deg]">9</b>
+      </span>
+      <span class="absolute items-center rotate-[300deg] inset-3" style="--i:10;">
+        <b class="inline-block text-xl -rotate-[300deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[330deg] inset-3" style="--i:11;">
+        <b class="inline-block text-xl -rotate-[330deg] scale-[2]">&middot;</b>
+      </span>
+      <span class="absolute items-center rotate-[360deg] inset-3" style="--i:12;">
+        <b class="inline-block text-3xl -rotate-[360deg]">12</b>
+      </span>
+    </div>
+  </main>
+
+<script src="script.js"></script> 
+</body>
+</html>
