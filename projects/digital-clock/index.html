@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="flex min-h-screen items-center justify-center bg-black font-figtree">
+  <div class="absolute z-20 w-full border-b-4 border-black"></div>
+  <main class="flex items-center justify-center gap-8 select-none">
+    <div class="relative flex items-center justify-center w-52 h-52 rounded-[2rem] bg-gray-900/50">
+      <span class="hour text-9xl font-semibold tracking-tight text-white">
+        00
+      </span>
+      <span class="absolute bottom-4 left-4 text-lg font-medium uppercase text-white">
+        GMT +7
+      </span>
+    </div>
+    <div class="flex items-center justify-center w-52 h-52 rounded-[2rem] bg-gray-900/50">
+      <span class="min text-9xl font-semibold tracking-tight text-white">
+        00
+      </span>
+    </div>
+    <div class="flex items-center justify-center w-52 h-52 rounded-[2rem] bg-gray-900/50">
+      <span class="sec text-9xl font-semibold tracking-tight text-white">
+        00
+      </span>
+    </div>
+  </main>
+
+<script src="script.js"></script>  
+</body>
+</html>
