@@ -6,17 +6,44 @@
   <title>Calendar</title>
   <link rel="stylesheet" href="../../src/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .days span {
+      padding: 0.75rem;
+      height: 3.5rem;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 400;
+      color: rgb(75 85 99 / 1);
+    }
+    .days span.inactive {
+      color: rgb(156 163 175 / 1);
+      background-color: rgb(249 250 251 / 1);
+    }
+    .days span:hover {
+      background-color: #f3f4f6;
+    }
+    @media (min-width: 1024px) {
+      .days span {
+        height: 7rem;
+      }
+    }
+    @media (max-width: 1024px) {
+      .days span {
+        text-align: end;
+      }
+    }
+  </style>
 </head>
 <body class="font-figtree">
   
   <main class="max-w-screen-xl my-10 mx-auto rounded-lg border border-gray-200 overflow-hidden">
     <div class="flex py-4 px-5 items-center justify-between rounded-t-lg bg-gray-50 border-gray-200">
-      <h1 class="text-lg font-semibold tracking-tight leading-5 text-gray-900">
+      <h1 class="current-date text-lg font-semibold tracking-tight leading-5 text-gray-900">
         January 2020
       </h1>
       <div class="flex gap-4 items-center justify-normal">
         <div class="flex items-center rounded-md border bg-white border-gray-300 shadow-sm">
-          <button class="p-2.5 rounded-l-md text-gray-400 hover:text-gray-500 hover:bg-gray-50">
+          <button id="prev" class="ctrl-btn p-2.5 rounded-l-md text-gray-400 hover:text-gray-500 hover:bg-gray-50">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
@@ -25,7 +52,7 @@
             Today
           </button>
           <div class="h-5 md:hidden border-l border-gray-300"></div>
-          <button class="p-2.5 rounded-r-md text-gray-400 hover:text-gray-500 hover:bg-gray-50">
+          <button id="next" class="ctrl-btn p-2.5 rounded-r-md text-gray-400 hover:text-gray-500 hover:bg-gray-50">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
@@ -44,71 +71,29 @@
       </div>
     </div>
     <div class="relative z-20 grid grid-cols-7 divide-x border-y -space-x-px bg-white divide-gray-200 border-gray-300">
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['M'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['M'] text-gray-600">
         <span class="max-sm:hidden">Mon</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['T'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['T'] text-gray-600">
         <span class="max-sm:hidden">Tue</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['W'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['W'] text-gray-600">
         <span class="max-sm:hidden">Wed</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['T'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['T'] text-gray-600">
         <span class="max-sm:hidden">Thu</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['F'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['F'] text-gray-600">
         <span class="max-sm:hidden">Fri</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['S'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['S'] text-gray-600">
         <span class="max-sm:hidden">Sat</span>
       </span>
-      <span class="days py-2.5 text-sm font-semibold text-center max-sm:before:content-['S'] text-gray-600">
+      <span class="py-2.5 text-sm font-semibold text-center max-sm:before:content-['S'] text-gray-600">
         <span class="max-sm:hidden">Sun</span>
       </span>
     </div>
-    <div class="grid grid-cols-7 divide-x divide-y -space-x-px -space-y-px divide-gray-200">
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">27</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">28</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">29</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">30</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">31</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">1</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">2</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">3</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">4</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">5</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">6</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">7</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">8</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">9</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">10</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">11</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">12</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">13</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">14</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">15</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">16</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">17</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">18</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">19</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">20</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">21</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">22</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">23</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">24</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">25</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">26</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">27</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">28</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">29</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">30</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-600">31</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">1</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">2</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">3</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">4</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">5</span>
-      <span class="p-3 h-14 lg:h-28 text-sm font-normal max-lg:text-end text-gray-400 bg-gray-50">6</span>
+    <div class="days grid grid-cols-7 divide-x divide-y -space-x-px -space-y-px divide-gray-200">
     </div>
   </main>
 
